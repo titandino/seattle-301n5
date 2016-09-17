@@ -7,11 +7,11 @@ The portfolio site that you create will highlight your projects and interests, a
 Some hints to get going:
 
 - Start a fresh new repository for this project on GitHub.
-- Start with a **rough** pen & paper "wireframe" sketch of what you want your portfolio site to look like. You are expected to create completely original styling for your portfolio, so take the time to decide how you want the portfolio to look. The more specificity you can provide, the easier it will be to write the CSS. You can always modify the styling as you progress, but it's very hard to create styling if you don't have a clear picture of how the finished product should look and behave.
+- Start with a pen & paper "wireframe" sketch of what you want your portfolio site to look like. You are expected to create completely original styling for your portfolio, so take the time to decide how you want the portfolio to look. The more specificity you can provide, the easier it will be to write the CSS. You can always modify the styling as you progress, but it's very hard to create styling if you don't have a clear picture of how the finished product should look and behave.
 - Make a JS constructor function to model your project data. Think about what properties you would need to accurately model a coding project.
 - Work through as many of the user stories as you can, but always submit what you have by the due date. Don't let "if only..." ideas keep you from turning something in!
 - Add the [.eslintrc]() config file to the root of your repo, so we are all on the same linter settings.
-- Also include a [.gitignore]() file in your root directory to prevent non-relevant files from being pushed to GitHub.
+- Also include a .[gitignore] (https://github.com/codefellows/seattle-301n5/blob/master/.gitignore) file in your root directory to prevent non-relevant files from being pushed to GitHub.
 
 Follow along with these user stories to make sure your portfolio looks good on any sized device.
 
@@ -33,10 +33,10 @@ Let these user stories guide your development:
 ## Technical Requirements and Grading Rubric
 - Use good Object Oriented code: Create a constructor function for projects that contains properties appropriate for a portfolio project.
 - Leave as little in the `window` (global) namespace as possible: attach functions to objects, etc.
-->???? strict mode
-->???? When you have finished your wireframes and data model, present them to the instructors for approval.
-->???? CSS reset?
-->???? hamburger menu
+- Use strict mode in all .js files.
+- When you have finished your wireframes and data model, present them to the instructors for approval.
+- Include a CSS reset
+- The nav menu should be hidden by default in mobile mode and should display when the user clicks the hamburger icon.
 - Be sure to use proper `viewport` settings.
 - Use mobile-first design principles when adding CSS.
 - Add new styles in any media queries as needed to make the page look good on desktop screens.

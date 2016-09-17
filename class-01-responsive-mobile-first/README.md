@@ -22,13 +22,19 @@
 
 For each class, you'll find resources related to the lecture (like PDF of slides, video links, and example code from class) in the `lecture-code` subdirectory.
 
-<!-- ## Lab assignment
+## Lab assignment
+
+## Pair assignments
+
+Throughout this course, you'll have a structured way to do "pair programming" with your classmates. You will have the opportunity to work with a number of your classmates, benefiting from their background and perspective, whether it's technical or otherwise.
+
+Full instructions for what to do are found in your first pair assignment. See the `README.md` file in the `pair-assignment` folder.
 
 Let's develop some mobile/responsive super-powers!
 
-With a pair, make the blog responsive, so it hides the main navigation menu under a "Hamburger" link on small screens, and unfurls to a row of tab-like links on larger screens.
+With a pair, make the blog responsive, so it hides the main navigation menu under a "Hamburger" icon on small screens, and unfurls to a row of tab-like links on larger screens.
 
-Then, see how you can apply these same ideas in your portfolio! -->
+Then, see how you can apply these same ideas in your portfolio!
 
 ## Independent assignment
 
