@@ -6,13 +6,16 @@
     hamburger menu. */
 .heading-group-h1 {
   float: left;
-  padding: 0 0 .2em 1em;
+  padding: 0 0 .2em 2em;
+  /*border: 1px dashed red;*/
 }
 
 .icon-menu {
   /* TODO: Add styles for the icon-menu class (whether it be the
       hamburger font icon or an image of your choosing). It should be
       bigger, and off to the right. */
+    float: right;
+    font-size: 2.5em;
 }
 
 .main-nav {
@@ -66,3 +69,17 @@
          - The main-nav should be all on one row, with padding spaced better
            for a larger screen.
 */
+@media only screen and (min-width: 960px) {
+  .icon-menu {
+    display: none;
+
+  }
+  .main-nav ul {
+    display: block;
+  }
+  .main-nav li {
+    display: inline-block;
+    padding: 0 2%;
+
+  }
+}

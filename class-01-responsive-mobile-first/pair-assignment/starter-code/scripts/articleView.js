@@ -55,9 +55,9 @@ articleView.handleMainNav = function() {
 };
 
 articleView.toggleNavDisplay = function() {
-  $('#menu-button').on('click', function(e) {
+  $('.icon-menu').on('click', function(e) {
     e.preventDefault();
-    $('#nav-menu').toggle(450);
+    $('.main-nav ul').toggle(450);
   });
 };
 
