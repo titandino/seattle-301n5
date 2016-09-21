@@ -29,9 +29,9 @@
   clear: both;
 }
 
-.main-nav:hover ul {
+/*.main-nav:hover ul {
   display: block;
-}
+}*/
 
 .main-nav li {
   margin-right: .4em;

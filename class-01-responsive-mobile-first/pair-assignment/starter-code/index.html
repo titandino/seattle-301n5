@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles/modules.css">
     <!-- Code Fellows favicon -->
     <link rel="icon" type="image/x-icon" href="https://i.imgur.com/7v5ASc8.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   </head>
   <body>
     <header class="site-header clearfix">
@@ -23,8 +24,8 @@
       </section>
       <nav class="main-nav">
         <!-- TODO: Insert here a 'hamburger' menu icon font (or find your own img). Using a div is okay! -->
-        <p>&#9776;</p>
-        <ul>
+        <div id="menu-button"><p>&#9776;</p></div>
+        <ul id="nav-menu">
           <!-- TODO: Fill in the empty class attributes for each <li> with the
                       proper icon font name -->
           <li class="tab" data-content="articles"><a href="#" class="icon-home"> Home</a></li>
@@ -84,5 +85,6 @@
     <footer>
       &copy; 2016 Code Fellows | Static Blog | Happy Ipsum!
     </footer>
+    <script src="scripts/articleView.js" charset="utf-8"></script>
   </body>
 </html>
