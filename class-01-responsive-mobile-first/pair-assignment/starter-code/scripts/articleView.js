@@ -55,8 +55,10 @@ articleView.handleMainNav = function() {
 };
 
 articleView.toggleNavDisplay = function() {
-  //TODO: once you've added your hamburger menu icon, add an event handler to hide/show
-  //the nav menu when the icon is clicked
+  $('.icon-menu').on('click', function(e) {
+    e.preventDefault();
+    $('.main-nav ul').toggle(450);
+  });
 };
 
 articleView.setTeasers = function() {
