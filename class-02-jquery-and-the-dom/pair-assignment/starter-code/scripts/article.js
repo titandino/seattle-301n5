@@ -31,11 +31,11 @@ Article.prototype.toHtml = function() {
   return $newArticle;
 };
 
-ourLocalData.sort(function(firstElement, secondElement) {
+rawData.sort(function(firstElement, secondElement) {
   return (new Date(secondElement.publishedOn)) - (new Date(firstElement.publishedOn));
 });
 
-ourLocalData.forEach(function(theCurrentArticleObject) {
+rawData.forEach(function(theCurrentArticleObject) {
   articles.push(new Article(theCurrentArticleObject));
 });
 
