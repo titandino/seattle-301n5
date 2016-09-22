@@ -12,7 +12,7 @@
 //parent descendent
 
 
-// parent > child
+//parent > child
 
 
 //attribute
