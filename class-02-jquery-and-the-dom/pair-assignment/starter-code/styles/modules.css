@@ -23,6 +23,10 @@
   clear: both;
 }
 
+.shown {
+  display: block;
+}
+
 .main-nav li {
   margin-right: .4em;
   font-size: 1.5em;
