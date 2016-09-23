@@ -7,7 +7,7 @@ articleView.toggleNavDisplay = function() {
   // hint: create a 'hidden' class that can be applied to or removed from the nav ul
   $('.icon-menu').on('click', function(e) {
     var List = $('.main-nav ul');
-    List.toggle();
+    List.toggle(1000);
     // if( List.hasClass('shown')){
     //   List.removeClass('shown');
     // } else {
