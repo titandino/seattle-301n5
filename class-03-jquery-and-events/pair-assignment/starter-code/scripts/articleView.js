@@ -1,6 +1,6 @@
 'use strict';
 
-// IN-CLASS TODO: Configure a view object, to hold all our functions for dynamic updates and article-related event handlers.
+// IN-CLASS DONE: Configure a view object, to hold all our functions for dynamic updates and article-related event handlers.
 var articleView = {};
 
 
@@ -55,6 +55,9 @@ articleView.handleMainNav = function () {
 articleView.toggleNavDisplay = function() {
   // TODO: add an event handler to toggle the nav menu's display property
   // in mobile mode when the hamburger menu is clicked
+  $('.icon-menu').on('click', function() {
+    $('.main-nav ul').toggle(500);
+  });
 };
 
 articleView.setTeasers = function() {
@@ -69,4 +72,12 @@ articleView.setTeasers = function() {
   */
 };
 
-// TODO: Invoke all of the above methods!:
+// DONE: Invoke all of the above methods!:
+$(function() {
+  articleView.handleAuthorFilter();
+  articleView.handleCategoryFilter();
+  articleView.handleMainNav();
+  articleView.populateFilters();
+  articleView.setTeasers();
+  articleView.toggleNavDisplay();
+});
