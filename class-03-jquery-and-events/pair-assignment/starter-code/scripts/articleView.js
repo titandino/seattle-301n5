@@ -21,15 +21,18 @@ articleView.populateFilters = function() {
 articleView.handleAuthorFilter = function() {
   $('#author-filter').on('change', function() {
     if ($(this).val()) {
-      /* TODO: If the slect box changes to an option that has a value, we should:
+      /* DONE: If the slect box changes to an option that has a value, we should:
           1. Hide all of the articles
           2. Fade in only the articles that match based on on the author
             that was aselected. Hint: use an attribute selector to find
             those articles that match the value, and then fade them in.
         */
+      $('[data-author]').hide();
+      $('[data-author="' + $(this).val() + '"]').show(500);
     } else {
         /* Otherwise, we should:
         1. Show all the articles except the template */
+      $('.template[data-author]').show();
     }
     $('#category-filter').val('');
   });
