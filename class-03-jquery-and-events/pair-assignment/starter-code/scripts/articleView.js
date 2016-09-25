@@ -27,8 +27,8 @@ articleView.handleAuthorFilter = function() {
             that was aselected. Hint: use an attribute selector to find
             those articles that match the value, and then fade them in.
         */
-      $('[data-author]').hide();
-      $('[data-author="' + $(this).val() + '"]').show(500);
+      $('article[data-author]').hide();
+      $('article[data-author="' + $(this).val() + '"]').show(500);
     } else {
         /* Otherwise, we should:
         1. Show all the articles except the template */
@@ -39,9 +39,18 @@ articleView.handleAuthorFilter = function() {
 };
 
 articleView.handleCategoryFilter = function() {
-  /* TODO: Just like we do for #author-filter above, we should also handle
+  /* DONE: Just like we do for #author-filter above, we should also handle
   change events on the #category-filter element. Be sure to reset the
   #author-filter while you're at it! */
+  $('#category-filter').on('change', function() {
+    if ($(this).val()) {
+      $('article[data-category]').hide();
+      $('article[data-category="' + $(this).val() + '"]').show(500);
+    } else {
+      $('.template[data-author]').show();
+    }
+    $('#author-filter').val('');
+  });
 };
 
 articleView.handleMainNav = function () {
