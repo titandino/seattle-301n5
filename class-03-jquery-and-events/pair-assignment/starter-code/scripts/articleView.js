@@ -19,6 +19,7 @@ articleView.populateFilters = function() {
 };
 
 articleView.handleAuthorFilter = function() {
+  //Describing the element and adding a change event
   $('#author-filter').on('change', function() {
     if ($(this).val()) {
       /* DONE: If the slect box changes to an option that has a value, we should:
@@ -32,12 +33,12 @@ articleView.handleAuthorFilter = function() {
     } else {
         /* Otherwise, we should:
         1. Show all the articles except the template */
-      $('.template[data-author]').show();
+      $('article[data-author]').not('.template').show();
     }
     $('#category-filter').val('');
   });
 };
-
+//Add event handler to category-filter
 articleView.handleCategoryFilter = function() {
   /* DONE: Just like we do for #author-filter above, we should also handle
   change events on the #category-filter element. Be sure to reset the
@@ -54,6 +55,7 @@ articleView.handleCategoryFilter = function() {
 };
 
 articleView.handleMainNav = function () {
+  //
   $('.main-nav').on('click', '.tab', function() {
     /* DONE:
       1. Hide all of the .tab-content sections
@@ -75,7 +77,7 @@ articleView.toggleNavDisplay = function() {
 };
 
 articleView.setTeasers = function() {
-  $('.article-body *:nth-of-type(n+2)').hide();
+  $('.article-body *:nth-of-type(n+2)').hide(); //sudo selector, get the 1st two elements and hide anything after
   /* TODO: Add a delegated event handler to reveal the remaining paragraphs.
     When a .read-on link is clicked, we can:
     1. Prevent the default action of a link.
@@ -86,9 +88,9 @@ articleView.setTeasers = function() {
   */
   $('article').on('click', '.read-on', function(e) {
     e.preventDefault();
-    $(this).parent().find('.article-body > p').toggle(750);
+    $(this).parent().find('.article-body > *:nth-of-type(n+2)').toggle(750);
     if($(this).text().includes('Read')) {
-      $(this).text('Show Less \u2191');
+      $(this).text('Show Less \u2191'); //character code for symbol(emjos)
     } else {
       $(this).text('Read On \u2192');
 
@@ -99,7 +101,7 @@ articleView.setTeasers = function() {
 
 };
 
-// DONE: Invoke all of the above methods!:
+// DONE: Invoke all of the above methods!: call all of our methods in order
 $(function() {
   articleView.handleAuthorFilter();
   articleView.handleCategoryFilter();
