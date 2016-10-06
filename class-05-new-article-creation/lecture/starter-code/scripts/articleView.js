@@ -1,25 +1,10 @@
-<<<<<<< HEAD
-=======
 'use strict';
 
->>>>>>> f5376425225ae90d8cdf4e069c2b89e9d06cd597
 // Configure a view object, to hold all our functions for dynamic updates and article-related event handlers.
 var articleView = {};
 
 articleView.populateFilters = function() {
   $('article').each(function() {
-<<<<<<< HEAD
-    if (!$(this).hasClass('template')) {
-      var val = $(this).find('address a').text();
-      var optionTag = '<option value="' + val + '">' + val + '</option>';
-      $('#author-filter').append(optionTag);
-
-      val = $(this).attr('data-category');
-      optionTag = '<option value="' + val + '">' + val + '</option>';
-      if ($('#category-filter option[value="' + val + '"]').length === 0) {
-        $('#category-filter').append(optionTag);
-      }
-=======
     var val = $(this).find('address a').text();
     var optionTag = '<option value="' + val + '">' + val + '</option>';
     $('#author-filter').append(optionTag);
@@ -28,7 +13,6 @@ articleView.populateFilters = function() {
     optionTag = '<option value="' + val + '">' + val + '</option>';
     if ($('#category-filter option[value="' + val + '"]').length === 0) {
       $('#category-filter').append(optionTag);
->>>>>>> f5376425225ae90d8cdf4e069c2b89e9d06cd597
     }
   });
 };
@@ -60,11 +44,7 @@ articleView.handleCategoryFilter = function() {
 };
 
 articleView.handleMainNav = function() {
-<<<<<<< HEAD
-  $('.main-nav').on('click', '.tab', function(e) {
-=======
   $('.main-nav').on('click', '.tab', function() {
->>>>>>> f5376425225ae90d8cdf4e069c2b89e9d06cd597
     $('.tab-content').hide();
     $('#' + $(this).data('content')).fadeIn();
   });
@@ -73,11 +53,7 @@ articleView.handleMainNav = function() {
 };
 
 articleView.toggleNavDisplay = function() {
-<<<<<<< HEAD
-  $('.icon-menu').on('click', function(e) {
-=======
   $('.icon-menu').on('click', function() {
->>>>>>> f5376425225ae90d8cdf4e069c2b89e9d06cd597
     $('.main-nav ul').toggle();
   });
 };
@@ -93,52 +69,60 @@ articleView.setTeasers = function() {
 };
 
 articleView.initNewArticlePage = function() {
+  // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later.
   $('.tab-content').show();
-  $('#export-field').hide();
-  $('#article-json').on('focus', function(){
+  // TODO: Any new article we create will be copy/pasted into our source data file.
+  // Set up this "export" functionality. We can hide it for now, and show it once we
+  // have data to export. Also, let's add a focus event to help us select and copy the
+  // resulting JSON.
+  $('#article-export').hide();
+  $('#article-json').on('focus', function() {
     this.select();
   });
-
+  // TODO: Add an event handler to update the preview and the export field if any inputs change.
   $('#new-form').on('change', 'input, textarea', articleView.create);
 };
 
 articleView.create = function() {
-  var article;
-  $('#articles').empty();
+  // TODO: Set up a var to hold the new article we are creating.
+  // Clear out the #article-preview element, so we can put in the updated preview
+  var newArticle;
+  $('#article-preview').empty();
 
-  // Instantiate an article based on what's in the form fields:
-  article = new Article({
+  // TODO: Instantiate an article based on what's in the form fields:
+  var obj = {
     title: $('#article-title').val(),
+    category: $('#article-category').val(),
     author: $('#article-author').val(),
     authorUrl: $('#article-author-url').val(),
-    category: $('#article-category').val(),
-    body: $('#article-body').val(),
-    publishedOn: $('#article-published:checked').length ? util.today() : null
-  });
+    publishedOn: $('#article-published:checked').length ? new Date() : null,
+    body: $('#article-body').val()
+  };
 
-  // Use the Handblebars template to put this new article into the DOM:
-  $('#articles').append(article.toHtml());
+  // TODO: Use our interface to the Handblebars template to put this new article into the DOM:
+  newArticle = new Article(obj);
+  $('#article-preview').append(newArticle.toHtml());
 
-  // Activate the highlighting of any code blocks:
+  // TODO: Activate the highlighting of any code blocks (ex:
+  /*
+  ```javascript
+  function example() {
+    return 'Hooray! Code highlighting!';
+  }
+  ```
+  */
+
   $('pre code').each(function(i, block) {
     hljs.highlightBlock(block);
   });
 
-  // Export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
-  $('#export-field').show();
-  $('#article-json').val(JSON.stringify(article) + ',');
+  // TODO: Export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
+  $('#article-export').show();
+  $('#article-json').val(JSON.stringify(newArticle) + ',');
 };
 
 
 articleView.initIndexPage = function() {
-  Article.all.forEach(function(a){
-<<<<<<< HEAD
-    $('#articles').append(a.toHtml())
-=======
-    $('#articles').append(a.toHtml());
->>>>>>> f5376425225ae90d8cdf4e069c2b89e9d06cd597
-  });
-
   articleView.populateFilters();
   articleView.handleCategoryFilter();
   articleView.handleAuthorFilter();
