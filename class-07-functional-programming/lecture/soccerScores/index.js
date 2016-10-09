@@ -12,16 +12,24 @@ const inputString = `Lions 3, Snakes 3\nTarantulas 1, Aardvarks 0\nLions 1, Aard
 // hint: string.split() returns an array of strings
 
 const parseGames = function(input) {
-  return input.
+  var gameObjects = [];
+  input.split('\n').forEach(function(gameString) {
+    gameObjects.push(gameObj(gameString.replace(',', '')));
+  });
+  return gameObjects;
 }
 
 
-// once you have broken the string into individual values, 
+// once you have broken the string into individual values,
 // use a helper function that takes the values from the input string and returns a game object
 
-const gameObj = function() {
+const gameObj = function(input) {
+  var details = input.split(' ');
   return {
-
+    teamA: details[0],
+    scoreA: parseInt(details[1]),
+    teamB: details[2],
+    scoreB: parseInt(details[3])
   }
 }
 
