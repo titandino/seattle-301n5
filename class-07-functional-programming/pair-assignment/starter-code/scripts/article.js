@@ -84,8 +84,8 @@
     // the author's name, and one for the total number of words across all articles written by the specified author.
     return Article.allAuthors().map(function(author) {
       return {
-        authorName: author,
-        totalWords: Article.all.reduce(function(a, b) {
+        name: author,
+        numWords: Article.all.reduce(function(a, b) {
           if (b.author == author)
             a.push(b);
           return a;
