@@ -23,8 +23,7 @@
 
   // TODO: Set up a DB table for articles.
   Article.createTable = function(callback) {
-    webDB.execute(
-      '...', // what SQL command do we run here inside these quotes?
+    webDB.execute('CREATE TABLE IF NOT EXISTS articles(id INTEGER PRIMARY KEY AUTO_INCREMENT, title VARCHAR(100) NOT NULL, category VARCHAR(50) NOT NULL, author VARCHAR(100) NOT NULL, authorUrl VARCHAR(200) NOT NULL, publishedOn VARCHAR(11) NOT NULL, body VARCHAR(10000) NOT NULL', // what SQL command do we run here inside these quotes?
       function(result) {
         console.log('Successfully set up the articles table.', result);
         if (callback) callback();
@@ -35,7 +34,7 @@
   // TODO: Use correct SQL syntax to delete all records from the articles table.
   Article.truncateTable = function(callback) {
     webDB.execute(
-      'DELETE ...;', // <----finish the command here, inside the quotes.
+      'DELETE * FROM articles;', // <----finish the command here, inside the quotes.
       callback
     );
   };
