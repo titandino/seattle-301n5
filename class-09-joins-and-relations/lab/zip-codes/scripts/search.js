@@ -27,6 +27,7 @@
       });
     });
     $('#state-select').on('change', function() {
+      $('#city-select option').remove();
       webDB.execute([{
         'sql': 'SELECT DISTINCT city,latitude,longitude FROM zips WHERE state=? ORDER BY city',
         'data': [$('#state-select').val()]
