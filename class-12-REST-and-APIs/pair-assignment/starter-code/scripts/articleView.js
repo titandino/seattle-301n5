@@ -1,3 +1,5 @@
+'use strict';
+
 (function(module) {
 
   // Configure a view object, to hold all our functions for dynamic updates and article-related event handlers.
@@ -16,19 +18,17 @@
 
   articleView.populateFilters = function() {
     $('article').each(function() {
-      if (!$(this).hasClass('template')) {
-        var val = $(this).find('address a').text();
-        var optionTag = '<option value="' + val + '">' + val + '</option>';
-        // Done: Ensure authors listed in the filter are unique
-        if ($('#author-filter option[value="' + val + '"]').length === 0) {
-          $('#author-filter').append(optionTag);
-        }
+      var val = $(this).find('address a').text();
+      var optionTag = '<option value="' + val + '">' + val + '</option>';
+      // Done: Ensure authors listed in the filter are unique
+      if ($('#author-filter option[value="' + val + '"]').length === 0) {
+        $('#author-filter').append(optionTag);
+      }
 
-        val = $(this).attr('data-category');
-        optionTag = '<option value="' + val + '">' + val + '</option>';
-        if ($('#category-filter option[value="' + val + '"]').length === 0) {
-          $('#category-filter').append(optionTag);
-        }
+      val = $(this).attr('data-category');
+      optionTag = '<option value="' + val + '">' + val + '</option>';
+      if ($('#category-filter option[value="' + val + '"]').length === 0) {
+        $('#category-filter').append(optionTag);
       }
     });
   };
@@ -60,7 +60,7 @@
   };
 
   articleView.toggleNavDisplay = function() {
-    $('.icon-menu').on('click', function(e) {
+    $('.icon-menu').on('click', function() {
       $('.main-nav ul').toggle();
     });
   };

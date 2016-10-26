@@ -16,7 +16,7 @@
       msg = 'html5sql verbosity off';
     }
     console.log(msg);
-  };
+  }
 
   // Public interface method to set up the initial database connection:
   webDB.init = function(isVerbose) {

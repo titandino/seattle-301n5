@@ -1,6 +1,8 @@
+'use strict';
+
 (function(module) {
   function Article (opts) {
-    Object.keys(opts).forEach(function(e, index, keys) {
+    Object.keys(opts).forEach(function(e) {
       this[e] = opts[e];
     },this);
   }
