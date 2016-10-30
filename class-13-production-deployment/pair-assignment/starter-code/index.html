@@ -10,36 +10,31 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
 
-    <!--
-      DONE: Add a script tag to hold the Handlebars template.
-        - Be sure to give it a meaningful id attribute.
-        - Move your old template structure to here.
-        - Insert placeholder keys.
-        - If your object doesn't have values you need yet, you can add those properties in the model.
-    -->
     <script id="article-template" type="text/x-handlebars-template">
-      <article>
+      <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
         <header>
           <h1>{{title}}</h1>
           <div class="byline">
             By <address><a href="{{authorUrl}}">{{author}}</a></address>
-            <time pubdate datetime="{{publishedOn}}">{{publishStatus}}</time>
+            {{publishStatus}}
           </div>
         </header>
-        <section class="article-body">
-          {{{body}}}
-        </section>
+        <section class="article-body">{{{body}}}</section>
         <a href="#" class="read-on">Read on &rarr;</a>
       </article>
     </script>
-
-    <!--
-      STRETCH! Look at all that duplicated markup in our #filter items!
-      Looks like a good opportunity to use a template.
-      Make a small template for filters, and re-render the list once
-      you have data to populate it with.
-     -->
-
+    <script id="repo-template" type="text/x-handlebars-template">
+      <li>
+        <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
+        <p>Description: {{description}}</p>
+        <p>Language: {{language}}</p>
+        <p>Created: {{created_at}}</p>
+        <p>Last updated: {{updated_at}}</p>
+        {{#if watchers_count}}
+          <p>{{watchers_count}} watching this repo</p>
+        {{/if}}
+      </li>
+    </script>
   </head>
   <body>
     <header class="site-header clearfix">
@@ -52,8 +47,8 @@
       <nav class="main-nav">
         <div class="icon-menu"></div>
         <ul>
-          <li class="tab" data-content="articles"><a href="#" class="icon-home"> Home</a></li>
-          <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
+          <li class="tab" data-content="articles"><a href="/" class="icon-home"> Home</a></li>
+          <li class="tab" data-content="about"><a href="/about" class="icon-address-book"> About</a></li>
           <li><a href="http://twitter.com/brookr" target="_blank" class="icon-twitter3"> Twitter</a></li>
           <li><a href="http://github.com/brookr" target="_blank" class="icon-github"> GitHub</a></li>
         </ul>
@@ -81,11 +76,9 @@
           Welcome to my Blog
         </header>
         <section>
-          <h1>Some of my interests:</h1>
+          <h1>Check out my Projects on GitHub:</h1>
           <ul>
             <li>Coding</li>
-            <li>Sharing what I've learned</li>
-            <li>Hanging with my family</li>
           </ul>
         </section>
       </section>
@@ -94,11 +87,24 @@
       &copy; 2015 Code Fellows | Static Blog | Happy Ipsum!
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <!-- DONE: Include Handlebars.JS from a CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-    <script src="scripts/blogArticles.js"></script>
-    <script src="scripts/article.js"></script>
-    <script src="scripts/articleView.js"></script>
+    <script src="/vendor/scripts/jquery-2.1.4.js"></script>
+    <script src="/vendor/scripts/handlebars.js"></script>
+    <script src="/vendor/scripts/marked.js"></script>
+    <script src="/vendor/scripts/html5sql.js"></script>
+    <script src="/scripts/webdb.js"></script>
+    <script src="/vendor/scripts/page.js"></script>
+
+    <!-- Script files for the Article resource: -->
+    <script src="/scripts/article.js"></script>
+    <script src="/scripts/articleView.js"></script>
+    <script src="/scripts/articleController.js"></script>
+
+    <!-- TODO: Our githubToken.js file is gone! Where instead should we securely place 
+    our token?-->
+    <script src="/scripts/repo.js"></script>
+    <script src="/scripts/repoView.js"></script>
+    <script src="/scripts/aboutController.js"></script>
+
+    <script src="/scripts/routes.js"></script>
   </body>
 </html>
